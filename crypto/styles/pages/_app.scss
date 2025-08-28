@@ -1,0 +1,15 @@
+@use '../base/variables' as *;
+
+body {
+  background-color: $color-bg;
+}
+#app {
+  width: 100%;
+  max-width: 480px;
+  height: 100vh;
+  margin: 0 auto;
+
+  color: $color-text-main;
+  font-family: $font-main;
+  line-height: 1;
+}

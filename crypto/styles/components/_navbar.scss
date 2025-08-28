@@ -1,0 +1,69 @@
+@use '../base/variables' as *;
+
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: $color-bg;
+  border-top: 1px solid #484f5e;
+  transition:
+    transform 0.3s ease,
+    height 0.3s ease;
+  z-index: 1000;
+
+  &.collapsed {
+    transform: translateY(50%);
+    height: 53px;
+  }
+
+  &-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    background-color: transparent;
+    border: none;
+    color: #5a7e9a;
+    row-gap: 0.3125rem;
+    &.active {
+      .bottom-nav-btn-icon-wrapper {
+        background-color: $color-bg-accent;
+
+        svg {
+          color: $color-text-main;
+        }
+      }
+
+      .bottom-nav-btn-text {
+        color: $color-text-main; // например
+      }
+    }
+
+    &-icon-wrapper {
+      background-color: $color-bg-additional;
+      border-radius: 8px;
+      padding: 5px;
+      svg {
+        display: block;
+      }
+    }
+    &-text {
+      color: $color-text-accent;
+
+      font-size: 0.75rem;
+
+      font-weight: 500;
+
+      letter-spacing: -0.24px;
+    }
+    &.collapsed {
+      display: none;
+    }
+  }
+}

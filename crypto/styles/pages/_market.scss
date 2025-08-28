@@ -1,0 +1,156 @@
+@use '../base/variables' as *;
+
+.market {
+  margin-top: 4.625rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 5.5rem;
+
+  &__nav {
+    margin-top: 1.0625rem;
+
+    position: relative;
+    &::after {
+      content: '';
+      position: absolute;
+      left: -1rem;
+      right: -1rem;
+      bottom: 0;
+      height: 1px;
+      background-color: #484f5e;
+      z-index: 1;
+    }
+    &-items {
+      align-items: center;
+      display: flex;
+      flex-direction: row;
+      column-gap: 1.25rem;
+    }
+    &-item {
+      padding-bottom: 0.3125rem;
+      text-transform: uppercase;
+      color: #5a7e9a;
+      font-size: 1rem;
+      font-weight: 400;
+      letter-spacing: -0.32px;
+      position: relative;
+
+      &.choosen {
+        color: $color-text-main;
+
+        &::after {
+          content: '';
+          position: absolute;
+          left: -0.6rem;
+          right: -0.6rem;
+          bottom: -5px;
+          height: 1px;
+          background-color: $color-text-main;
+          z-index: 2;
+        }
+        &:first-of-type {
+          &::after {
+            bottom: 0px;
+          }
+        }
+      }
+    }
+  }
+  &__coins {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0.625rem 0.75rem;
+    row-gap: 0.5rem;
+
+    img {
+      width: 24px;
+      height: 25px;
+    }
+    &-info {
+      display: flex;
+      flex-direction: row;
+      column-gap: 0.625rem;
+      margin: auto 0;
+    }
+    &-asset {
+      display: grid;
+      grid-template-columns: 33% 23% 21%;
+      justify-content: space-between;
+      align-items: start;
+
+      background-color: $color-bg-additional;
+      padding: 0.625rem 0.75rem;
+      border-radius: 10px;
+
+      &-inner {
+        display: flex;
+        flex-direction: column;
+        row-gap: 0.3125rem;
+
+        &-title {
+          color: $color-text-main;
+          font-size: 1rem;
+          font-weight: 600;
+          letter-spacing: -0.32px;
+        }
+        &-pair {
+          display: flex;
+          flex-direction: row;
+
+          align-items: center;
+          color: $color-text-additional;
+          column-gap: 0.125rem;
+          font-size: 0.75rem;
+          font-weight: 400;
+          letter-spacing: -0.24px;
+        }
+      }
+      &-chart {
+        width: 100%;
+        height: 47px; // высота подстраивается под контейнер
+      }
+      &-currency {
+        display: flex;
+        flex-direction: column;
+        row-gap: 0.3125rem;
+        align-items: end;
+        margin: auto 0;
+
+        &-current {
+          display: flex;
+          flex-direction: row;
+          color: $color-text-main;
+          font-size: 1rem;
+          font-weight: 600;
+          letter-spacing: -0.32px;
+        }
+
+        &-pnl {
+          display: flex;
+          flex-direction: row;
+          column-gap: 0.125rem;
+          align-items: center;
+          justify-content: center;
+
+          &.profit {
+            color: $color-text-green;
+          }
+          &.loss {
+            color: $color-text-red;
+          }
+
+          font-size: 0.5rem;
+
+          font-weight: 400;
+
+          letter-spacing: -0.16px;
+          &-sign {
+            display: flex;
+            align-items: center;
+          }
+        }
+      }
+    }
+  }
+}
